@@ -36,15 +36,15 @@ const PostForm = ({ post, action }: PostFormProps) => {
     defaultValues: {
       caption: post ? post?.caption : "",
       file: [],
-      location: post ? post.location : "",
+      location: post ? post?.location : "",
       tags: post ? post.tags.join(",") : "",
     },
   });
 
   // Query
-  const { mutateAsync: createPost, isLoading: isLoadingCreate } =
+  const { mutateAsync: createPost, isPending: isLoadingCreate } =
     useCreatePost();
-  const { mutateAsync: updatePost, isLoading: isLoadingUpdate } =
+  const { mutateAsync: updatePost, isPending: isLoadingUpdate } =
     useUpdatePost();
 
   // Handler
