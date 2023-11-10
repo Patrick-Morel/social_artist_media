@@ -24,7 +24,7 @@ import { useCreatePost, useUpdatePost } from "@/lib/react-query/queries";
 
 type PostFormProps = {
   post?: Models.Document;
-  action: "Create" | "Update";
+  action: "Créer" | "Modifier";
 };
 
 const PostForm = ({ post, action }: PostFormProps) => {
@@ -50,7 +50,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
   // Handler
   const handleSubmit = async (value: z.infer<typeof PostValidation>) => {
     // ACTION = UPDATE
-    if (post && action === "Update") {
+    if (post && action === "Modifier") {
       const updatedPost = await updatePost({
         ...value,
         postId: post.$id,
@@ -171,7 +171,7 @@ const PostForm = ({ post, action }: PostFormProps) => {
             disabled={isLoadingCreate || isLoadingUpdate}
           >
             {(isLoadingCreate || isLoadingUpdate) && <Loader />}
-            Publier
+            {action} Publication
           </Button>
         </div>
       </form>

@@ -31,7 +31,7 @@ const EditPost = () => {
           </h2>
         </div>
 
-        {isLoading ? <Loader /> : <PostForm action="Update" post={post} />}
+        {isLoading ? <Loader /> : <PostForm action="Modifier" post={post} />}
       </div>
     </div>
   );
