@@ -2,27 +2,27 @@ export const sidebarLinks = [
     {
       imgURL: "/assets/icons/home.svg",
       route: "/",
-      label: "Home",
+      label: "Accueil",
     },
     {
       imgURL: "/assets/icons/wallpaper.svg",
       route: "/explore",
-      label: "Explore",
+      label: "Explorer",
     },
     {
       imgURL: "/assets/icons/people.svg",
       route: "/all-users",
-      label: "People",
+      label: "Membres",
     },
     {
       imgURL: "/assets/icons/bookmark.svg",
       route: "/saved",
-      label: "Saved",
+      label: "Sauvegardes",
     },
     {
       imgURL: "/assets/icons/gallery-add.svg",
       route: "/create-post",
-      label: "Create Post",
+      label: "Publier",
     },
   ];
   
@@ -30,21 +30,21 @@ export const sidebarLinks = [
     {
       imgURL: "/assets/icons/home.svg",
       route: "/",
-      label: "Home",
+      label: "Accueil",
     },
     {
       imgURL: "/assets/icons/wallpaper.svg",
       route: "/explore",
-      label: "Explore",
+      label: "Explorer",
     },
     {
       imgURL: "/assets/icons/bookmark.svg",
       route: "/saved",
-      label: "Saved",
+      label: "Sauvegardes",
     },
     {
       imgURL: "/assets/icons/gallery-add.svg",
       route: "/create-post",
-      label: "Create",
+      label: "Publier",
     },
   ];

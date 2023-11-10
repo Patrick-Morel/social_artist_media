@@ -39,9 +39,9 @@ const SignupForm = () => {
   });
 
   // Queries
-  const { mutateAsync: createUserAccount, isLoading: isCreatingAccount } =
+  const { mutateAsync: createUserAccount, isPending: isCreatingAccount } =
     useCreateUserAccount();
-  const { mutateAsync: signInAccount, isLoading: isSigningInUser } =
+  const { mutateAsync: signInAccount, isPending: isSigningInUser } =
     useSignInAccount();
 
   // Handler
@@ -50,7 +50,7 @@ const SignupForm = () => {
       const newUser = await createUserAccount(user);
 
       if (!newUser) {
-        toast({ title: "Sign up failed. Please try again." });
+        toast({ title: "Échec de l'inscription. Veuillez réessayer." });
 
         return;
       }
@@ -61,7 +61,10 @@ const SignupForm = () => {
       });
 
       if (!session) {
-        toast({ title: "Something went wrong. Please login your new account" });
+        toast({
+          title:
+            "Quelque chose s'est mal passé. Veuillez vous connecter à votre nouveau compte.",
+        });
 
         navigate("/sign-in");
 
@@ -75,7 +78,7 @@ const SignupForm = () => {
 
         navigate("/");
       } else {
-        toast({ title: "Login failed. Please try again." });
+        toast({ title: "Échec de la connexion. Veuillez réessayer." });
 
         return;
       }
@@ -90,10 +93,10 @@ const SignupForm = () => {
         <img src="/assets/images/logo.svg" alt="logo" />
 
         <h2 className="h3-bold md:h2-bold pt-5 sm:pt-12">
-          Create a new account
+          Créer un nouveau compte
         </h2>
         <p className="text-light-3 small-medium md:base-regular mt-2">
-          To use snapgram, Please enter your details
+          Pour utiliser SPM, veuillez entrer vos informations
         </p>
 
         <form
@@ -105,7 +108,7 @@ const SignupForm = () => {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Name</FormLabel>
+                <FormLabel className="shad-form_label">Nom</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
@@ -119,7 +122,7 @@ const SignupForm = () => {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Username</FormLabel>
+                <FormLabel className="shad-form_label">Prénom</FormLabel>
                 <FormControl>
                   <Input type="text" className="shad-input" {...field} />
                 </FormControl>
@@ -147,7 +150,7 @@ const SignupForm = () => {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="shad-form_label">Password</FormLabel>
+                <FormLabel className="shad-form_label">Mot de passe</FormLabel>
                 <FormControl>
                   <Input type="password" className="shad-input" {...field} />
                 </FormControl>
@@ -159,20 +162,20 @@ const SignupForm = () => {
           <Button type="submit" className="shad-button_primary">
             {isCreatingAccount || isSigningInUser || isUserLoading ? (
               <div className="flex-center gap-2">
-                <Loader /> Loading...
+                <Loader /> Chargement...
               </div>
             ) : (
-              "Sign Up"
+              "Créer un compte"
             )}
           </Button>
 
           <p className="text-small-regular text-light-2 text-center mt-2">
-            Already have an account?
+            Vous avez déjà un compte ?
             <Link
               to="/sign-in"
               className="text-primary-500 text-small-semibold ml-1"
             >
-              Log in
+              Se connecter
             </Link>
           </p>
         </form>

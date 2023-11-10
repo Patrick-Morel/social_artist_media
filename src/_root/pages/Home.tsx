@@ -9,12 +9,12 @@ const Home = () => {
 
   const {
     data: posts,
-    isLoading: isPostLoading,
+    isPending: isPostLoading,
     isError: isErrorPosts,
   } = useGetRecentPosts();
   const {
     data: creators,
-    isLoading: isUserLoading,
+    isPending: isUserLoading,
     isError: isErrorCreators,
   } = useGetUsers(10);
 
@@ -22,10 +22,14 @@ const Home = () => {
     return (
       <div className="flex flex-1">
         <div className="home-container">
-          <p className="body-medium text-light-1">Something bad happened</p>
+          <p className="body-medium text-light-1">
+            Une erreur s'est produite !
+          </p>
         </div>
         <div className="home-creators">
-          <p className="body-medium text-light-1">Something bad happened</p>
+          <p className="body-medium text-light-1">
+            Une erreur s'est produite !
+          </p>
         </div>
       </div>
     );
@@ -35,7 +39,9 @@ const Home = () => {
     <div className="flex flex-1">
       <div className="home-container">
         <div className="home-posts">
-          <h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
+          <h2 className="h3-bold md:h2-bold text-left w-full">
+            Fil d'actualités
+          </h2>
           {isPostLoading && !posts ? (
             <Loader />
           ) : (
@@ -51,7 +57,7 @@ const Home = () => {
       </div>
 
       <div className="home-creators">
-        <h3 className="h3-bold text-light-1">Top Creators</h3>
+        <h3 className="h3-bold text-light-1">Membres les plus populaires</h3>
         {isUserLoading && !creators ? (
           <Loader />
         ) : (

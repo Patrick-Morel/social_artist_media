@@ -15,7 +15,7 @@ export function formatDateString(dateString: string) {
   };
 
   const date = new Date(dateString);
-  const formattedDate = date.toLocaleDateString("en-US", options);
+  const formattedDate = date.toLocaleDateString("fr-FR", options);
 
   const time = date.toLocaleTimeString([], {
     hour: "numeric",
@@ -41,15 +41,15 @@ export const multiFormatDateString = (timestamp: string = ""): string => {
     case Math.floor(diffInDays) >= 30:
       return formatDateString(timestamp);
     case Math.floor(diffInDays) === 1:
-      return `${Math.floor(diffInDays)} day ago`;
+      return `Il y a ${Math.floor(diffInDays)} jour`;
     case Math.floor(diffInDays) > 1 && diffInDays < 30:
-      return `${Math.floor(diffInDays)} days ago`;
+      return `Il y a ${Math.floor(diffInDays)} jours`;
     case Math.floor(diffInHours) >= 1:
-      return `${Math.floor(diffInHours)} hours ago`;
+      return `Il y a ${Math.floor(diffInHours)} heures`;
     case Math.floor(diffInMinutes) >= 1:
-      return `${Math.floor(diffInMinutes)} minutes ago`;
+      return `Il y a ${Math.floor(diffInMinutes)} minutes`;
     default:
-      return "Just now";
+      return "À l'instant";
   }
 };
 

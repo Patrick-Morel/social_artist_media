@@ -46,7 +46,7 @@ const PostDetails = () => {
             width={24}
             height={24}
           />
-          <p className="small-medium lg:base-medium">Back</p>
+          <p className="small-medium lg:base-medium">Retour</p>
         </Button>
       </div>
 
@@ -147,7 +147,7 @@ const PostDetails = () => {
         <hr className="border w-full border-dark-4/80" />
 
         <h3 className="body-bold md:h3-bold w-full my-10">
-          More Related Posts
+          Autres publications associées
         </h3>
         {isUserPostLoading || !relatedPosts ? (
           <Loader />
