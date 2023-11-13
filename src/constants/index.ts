@@ -12,7 +12,7 @@ export const sidebarLinks = [
     {
       imgURL: "/assets/icons/people.svg",
       route: "/all-users",
-      label: "Membres",
+      label: "Artistes",
     },
     {
       imgURL: "/assets/icons/bookmark.svg",
