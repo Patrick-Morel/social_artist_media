@@ -2,22 +2,22 @@ import { useEffect, useState } from "react";
 
 // https://codesandbox.io/s/react-query-debounce-ted8o?file=/src/useDebounce.js
 export default function useDebounce<T>(value: T, delay: number): T {
-  // State and setters for debounced value
+  // Retardez l’exécution de la fonction ou de la mise à jour de l’état avec useDebounce.
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
   useEffect(() => {
-    // Update debounced value after delay
+    // Mettre à jour la valeur avec délai après le délai spécifié
     const handler = setTimeout(() => {
       setDebouncedValue(value);
     }, delay);
 
-    // Cancel the timeout if value changes (also on delay change or unmount)
-    // This is how we prevent debounced value from updating if value is changed ...
-    // .. within the delay period. Timeout gets cleared and restarted.
+    // Annuler le délai si la valeur change (également en cas de modification du délai ou de démontage)
+    // C'est ainsi que nous évitons la mise à jour de la valeur avec délai si la valeur est changée...
+    // ... dans la période de délai. Le délai est effacé et redémarré.
     return () => {
       clearTimeout(handler);
     };
-  }, [value, delay]); // Only re-call effect if value or delay changes
+  }, [value, delay]); // Ne réexécute l'effet que si la valeur ou le délai changent
 
   return debouncedValue;
 }
